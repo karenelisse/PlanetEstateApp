@@ -3,7 +3,7 @@ galleryCtrl.controller('galleryController', function($scope, $http){
     $scope.planets = [];
     //Retrieve all the planets to show the gallery
     $http.get('/planet')
-        .success(function(data){
+        .then(function(data){
             console.log(JSON.stringify(data));
             $scope.planets = data;
         })

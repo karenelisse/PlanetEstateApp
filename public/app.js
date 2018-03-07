@@ -14,8 +14,11 @@ var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'galleryCtrl', 'de
             templateUrl: 'partials/detail.html',
             controller: 'detailController'
         })
+        .when('/home', {
+            templateUrl: 'partials/home.html'
+        })
         //Redirect to addPlanet in all the other cases.
-        .otherwise({redirectTo:'/addPlanet'});
+        .otherwise({redirectTo:'/home'});
         //Add the API key to use filestack service
         filepickerProvider.setKey('AxaJWrEr9SKu6htPFDFxUz');
 });
