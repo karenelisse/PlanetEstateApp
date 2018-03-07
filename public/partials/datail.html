@@ -1,0 +1,28 @@
+<!-- View the details of a planet -->
+<div>TESTING DETAILS</div>
+
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center"><span class="glyphicon glyphicon-globe"></span> Planet details </h2>
+        </div>
+        <div class="panel-body text-center">
+            <img ng-src="{{planet.picture.url | fpConvert: {filter:'sharpen', w:500} }}" />
+            <h2>{{planet.name}}</h2>
+            <hr />
+            <p class="text-left"><label>price: </label> {{superhero.price}}</p>
+            <p class="text-left"><label>bio: </label> {{planet.bio}}</p>
+            <!-- Only if there are other pictures -->
+            <div ng-if="planet.morePictures">
+                <h3> More Pictures <h3>
+                <div ng-repeat="picture in planet.morePictures">
+                    <div class="col-md-{{12 / planet.morePictures.length}}">
+                        <a ng-href="{{picture.url}}" class="thumbnail">
+                          <img ng-src="{{picture.url | fpConvert: {filter:'sharpen', w:500} }}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
