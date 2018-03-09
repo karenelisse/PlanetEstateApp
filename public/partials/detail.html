@@ -1,0 +1,30 @@
+<!-- View the details of a planet -->
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center"><span class="glyphicon glyphicon-globe"></span> Planet Listing Details </h2>
+        </div>
+        <div class="panel-body text-center">
+            <img ng-src="{{planet.data.picture.url | fpConvert: {filter:'sharpen', w:500} }}" />
+            <h2>{{planet.data.name}}</h2>
+            <hr />
+            <p class="text-left"><label>Size (Radius, in Km): </label> {{planet.data.name}}</p>
+            <p class="text-left"><label>Price (in Ethereum): </label> {{planet.data.price}}</p>
+            <p class="text-left"><label>Galaxy: </label> {{planet.data.galaxy}}</p>
+            <p class="text-left"><label>Solar System: </label> {{planet.data.solarsystem}}</p>
+            <p class="text-left"><label>Bio: </label> {{planet.data.bio}}</p>
+            <!-- Only if there are other pictures -->
+            <div ng-if="planet.data.morePictures">
+                <h3> More Pictures <h3>
+                <div ng-repeat="picture in planet.data.morePictures">
+                    <div class="col-md-{{12 / planet.data.morePictures.length}}">
+                        <a ng-href="{{planet.data.picture.url}}" class="thumbnail">
+                          <img ng-src="{{picture.url | fpConvert: {filter:'sharpen', w:500} }}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-left"><label>Contact Agent: </label> {{planet.data.agent}}</p>
+        </div>
+    </div>
+</div>
