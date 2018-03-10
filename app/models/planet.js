@@ -10,7 +10,7 @@ var PlanetSchema = new Schema({
     galaxy: {type: String, required: true},
     solarsystem: {type: String, required: true},
     bio: {type: String, required: true},
-    agent: {type: Number, required: true},
+    agent: {type: String, required: true},
     picture: {type: Schema.Types.Mixed, required: true},
     morePictures: Schema.Types.Mixed, //not required
     createdAt: {type: Date, default: Date.now},    

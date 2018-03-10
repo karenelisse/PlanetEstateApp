@@ -1,99 +1,96 @@
 // Dependencies
 var mongoose  = require('mongoose');
-var Planet = require('../models/planet');
+var Agent = require('../models/agent');
 // App routes
 module.exports = function() {
     return {
         /*
-         * Get route to retrieve all the planets.
+         * Get route to retrieve all the agents.
          */
         getAll : function(req, res){
-            //Query the DB and if no errors, send all the planets
-            var query = Planet.find({});
-            query.exec(function(err, planets){
+            //Query the DB and if no errors, send all the agents
+            var query = Agent.find({});
+            query.exec(function(err, agents){
                 if(err) res.send(err);
                 //If no errors, send them back to the client
-                res.json(planets);
+                res.json(agents);
             });
         },
         /*
-         * Post route to save a new planet into the DB.
+         * Post route to save a new agent into the DB.
          */
         post: function(req, res){
-            //Creates a new planet
-            var newPlanet = new Planet(req.body);
+            //Creates a new agent
+            var newAgent = new Agent(req.body);
             //Save it into the DB.
-            newPlanet.save(function(err){
+            newAgent.save(function(err){
                 if(err) res.send(err);
                 //If no errors, send it back to the client
                 res.json(req.body);
             });
         },
         /*
-         * Get a single planet based on id.
+         * Get a single agent based on id.
          */
         getOne: function(req, res){
-            Planet.findById(req.params.id, function(err, planet){ 
+            Agent.findById(req.params.id, function(err, agent){ 
                             
                 if(err) res.send(err);
                 //If no errors, send it back to the client
-                res.json(planet);
+                res.json(agent);
             });     
         },
         /**
          * Update()
          */
         update: function(req, res) { 
-            Planet.findById(req.params.id, function(err, planet){
+            Agent.findById(req.params.id, function(err, agent){
                 if(err) {
                     return res.status(500).json({
-                        message: 'Error saving Planet',
+                        message: 'Error saving Agent',
                         error: err
                     });
                 }
-                if(!planet) {
+                if(!agent) {
                     return res.status(404).json({
-                        message: 'No such planet'
+                        message: 'No such agent'
                     });
                 }
 
-                planet.name =  req.body.name;
-                planet.size =  req.body.size;
-                planet.price =  req.body.price;
-                planet.galaxy =  req.body.galaxy;
-                planet.solarsystem =  req.body.solarsystem;
-                planet.bio =  req.body.bio;
-                planet.agent =  req.body.agent;
+                agent.name =  req.body.name;
+                agent.number =  req.body.number;
+                agent.email =  req.body.email;
+                agent.bio =  req.body.bio;
                 
-                planet.save(function(err, planet){
+                agent.save(function(err, agent){
                     if(err) {
                         return res.status(500).json({
-                            message: 'Error updating planet '+req.params.id
+                            message: 'Error updating agent '+req.params.id
                         });
                     }
-                    if(!planet) {
+                    if(!agent) {
                         return res.status(404).json({
-                            message: 'No such planet'
+                            message: 'No such agent'
                         });
                     }
-                    return res.json(planet);
+                    return res.json(agent);
                 });
             });
 
         },
 
         /**
-         * planet.remove()
+         * agent.remove()
          */
         remove: function(req, res) {
             var id = req.params.id;
-            Planet.findByIdAndRemove(id, function(err, planet){
+            Agent.findByIdAndRemove(id, function(err, agent){
                 if(err) {
                     return res.status(500).json({
-                        message: 'Error getting planet.'
+                        message: 'Error getting agent.'
                     });
                 }
-                return res.json(planet);
+                return res.json(agent);
             });
         }
     }

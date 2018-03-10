@@ -1,0 +1,39 @@
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center">
+                <span class="glyphicon glyphicon-globe"></span>Update Agent
+            </h2>
+        </div>
+        <div class="panel-body">
+            <!-- The form to add agents information -->
+            <form name ="addForm" novalidate>
+                <div class="form-group">
+                    <label for="username">Name</label>
+                    <input type="text" class="form-control" placeholder="{{agent.data.name}}" ng-model="agent.name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="size">Number</label>
+                    <input type="text" class="form-control" placeholder="{{agent.data.number}}" ng-model="agent.number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="size">Email</label>
+                    <input type="text" class="form-control" placeholder="{{agent.data.email}}" ng-model="agent.email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="size">Bio</label><br>
+                    <textarea rows="7" cols="42" class="form-control" placeholder="{{agent.data.bio}}" ng-model="agent.bio" required></textarea>
+                </div>
+                
+              
+                <hr />
+                <br><i>NOTE: All forms must be filled in, or it will not update!</i>
+                <button type="submit" class="btn btn-info btn-block" ng-click="updateAgent()" ng-disabled="addForm.$invalid">Update</button>   
+               <a ng-href="/#!/listingAgent" class="btn btn-info btn-block">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
