@@ -1,10 +1,10 @@
 //Main file
-var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'detailCtrl', 'detailAgentCtrl', 'ngRoute', 'angular-filepicker'])
+var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'detailCtrl', 'detailAgentCtrl', 'agentCtrl', 'addAgentCtrl', 'modAgentCtrl', 'ngRoute', 'angular-filepicker'])
     .config(function($routeProvider, filepickerProvider){
         //The route provider handles the client request to switch route
         $routeProvider.when('/addPlanet', {          
             templateUrl: 'partials/inner/addPlanet.html',
-            controller: 'addPlanetController'            
+            controller: 'addPlanetController'           
         })
         .when('/listing', {
             templateUrl: 'partials/listing.html',
@@ -28,6 +28,28 @@ var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'de
             templateUrl: 'partials/inner/detailAgent.html',
             controller: 'detailAgentController'
         })
+        .when('/agents', {
+            templateUrl: 'partials/agents.html',
+            controller: 'agentController'
+        })
+        
+        .when('/agentHome', {
+            templateUrl: 'partials/inner/agentHome.html'
+        })
+        
+        .when('/allAgents', {
+            templateUrl: 'partials/inner/allAgents.html',
+            controller: 'agentController'
+        })
+        .when('/addAgent', {
+            templateUrl: 'partials/inner/addAgent.html',
+            controller: 'addAgentController'
+        })
+        .when('/modAgent/:id', {
+            templateUrl: 'partials/inner/modAgent.html',
+            controller: 'modAgentController'
+        })
+        
         //Redirect to home in all the other cases.
         .otherwise({redirectTo:'/home'});
         //Add the API key to use filestack service

@@ -7,6 +7,7 @@ var app = express();
 var path = require('path');
 
 var planet = require('./app/routes/planet')();
+var agent = require('./app/routes/agent')();
 
 // Just some options for the db connection
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
@@ -36,6 +37,14 @@ app.route('/planet/:id')
     .get(planet.getOne)
     .delete(planet.remove)
     .put(planet.update);
+
+app.route('/agent')
+    .post(agent.post)
+    .get(agent.getAll);
+app.route('/agent/:id')
+    .get(agent.getOne)
+    .delete(agent.remove)
+    .put(agent.update);
 
 app.listen(port);
 console.log('listening on port ' + port);

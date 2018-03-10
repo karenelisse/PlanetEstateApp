@@ -5,6 +5,12 @@
                 <span class="glyphicon glyphicon-globe"></span>Add A New Planet Form
             </h2>
         </div>
+        <div class="alert alert-success alert-dismissible"  ng-show="addCtrl.successAlert == true">
+            <button type="button" class="close"  aria-label="Close" ng-click="dismissSuccess()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Planet Added
+        </div>
         <div class="panel-body">
             <!-- The form to add planets information -->
             <form name ="addForm" novalidate>
@@ -37,18 +43,11 @@
                     <label for="size">Brief Bio</label><br>
                     <textarea rows="7" cols="42" class="form-control" placeholder="Insert Bio Here with info on inhabited, weather, atmosphere, etc" ng-model="planet.bio" required></textarea>
                 </div>
-
-
+                
                 <div class="form-group">
                     <label for="username">Agent</label>
-                    <select name="agent" class="form-control" ng-model="planet.agent" required>
-                        <option value="1">Luke Skywalker</option>
-                        <option value="2">Deanna Troi</option>
-                        <option value="3">Kara Thrace</option>
-                        <option value="4">Sigourney Weaver</option>
-                        <option value="5">Grace Augustine</option>
-                        <option value="6">James T. Kirk</option>
-                        <option value="7">Leia Organa</option>
+                    <select  name="agent" class="form-control" ng-model="planet.agent" required>
+                        <option ng-repeat="agent in agents.data" value="{{agent._id}}"> {{agent.name}}</option>
                     </select>
                 </div>
                 
@@ -69,7 +68,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="picture">Additional Pictures (Optional-Up to 3)</label>
+                    <label for="picture">More pictures? (Max 3, optional!)</label>
                     <div class="text-center">
                     <button type="button" class="btn btn-default" ng-click="uploadMultiple()">
                     Upload <span class="caret"></span>

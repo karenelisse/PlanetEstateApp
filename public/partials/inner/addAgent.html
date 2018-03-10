@@ -1,0 +1,59 @@
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center">
+                <span class="glyphicon glyphicon-globe"></span>Add A New Agent Form
+            </h2>
+        </div>
+        <div class="alert alert-success alert-dismissible"  ng-show="addCtrl.successAlert == true">
+            <button type="button" class="close"  aria-label="Close" ng-click="dismissSuccess()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Agent Added
+        </div>
+        <div class="panel-body">
+            <!-- The form to add agents information -->
+            <form name ="addForm" novalidate>
+                <div class="form-group">
+                    <label for="username">Name</label>
+                    <input type="text" class="form-control" placeholder="First and Last Name" ng-model="agent.name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="size">Phone Number</label>
+                    <input type="text" class="form-control" placeholder="XXX-XXXX" ng-model="agent.number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="size">email</label>
+                    <input type="email" class="form-control" placeholder="xxxx@xxxx.XXX" ng-model="agent.email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="size">Brief Bio</label><br>
+                    <textarea rows="7" cols="42" class="form-control" placeholder="Insert Bio Here with info on inhabited, weather, atmosphere, etc" ng-model="agent.bio" required></textarea>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="picture">Picture</label>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" ng-click="upload()">
+                            Upload <span class="caret"></span>
+                        </button>
+                        <div style="margin-top:10px;">
+                            <!-- Show the thumbnail only when the picture is uploaded -->
+                            <a href="{{agent.picture.url}}" class="thumbnail" ng-if="agent.picture">
+                            <!-- the picture is rendered with width: 500 and sharpened -->
+                            <img ng-src="{{agent.picture.url | fpConvert: {filter:'sharpen'} }}">
+                            </a>
+                        </div>                  
+                    </div>
+                </div>
+
+                <hr />              
+                <button type="submit" class="btn btn-info btn-block" ng-click="createAgent('showSuccessAlert')" ng-disabled="addForm.$invalid">Submit</button>             
+            </form>
+        </div>
+    </div>
+</div>

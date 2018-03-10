@@ -1,15 +1,29 @@
 var addCtrl = angular.module('addPlanetCtrl', []);
-addCtrl.controller('addPlanetController', function($scope, $http, filepickerService){
+addCtrl.controller('addPlanetController', function($scope, $http, $routeParams, filepickerService){
     $scope.planet = {};
     //Send the newly created planet to the server to store in the db
     $scope.createPlanet = function(){
         $http.post('/planet', $scope.planet)
-            .this(function(data){
+            .then(function(data){
                 console.log(JSON.stringify(data));
                 //Clean the form to allow the user to create new planets
                 $scope.planet = {};
+                //$scope.successAlert = true;
+                
             });
+        //$scope.addCtrl.successAlert = true;
     };
+    
+    //gets Agent Info
+    $scope.agents = [];
+    var id = $routeParams.id;
+    //Retrieve all the agents to show the agent
+    $http.get('/agent')
+        .then(function(agentdata){
+            //console.log("THIS MY DATA!!"+JSON.stringify(agentdata));
+            $scope.agents = agentdata;
+        });
+   
     //Single file upload, you can take a look at the options
     $scope.upload = function(){
         filepickerService.pick(
@@ -26,6 +40,7 @@ addCtrl.controller('addPlanetController', function($scope, $http, filepickerServ
             }
         );
     };
+    
     //Multiple files upload set to 3 as max number
     $scope.uploadMultiple = function(){
         filepickerService.pickMultiple(
@@ -42,5 +57,13 @@ addCtrl.controller('addPlanetController', function($scope, $http, filepickerServ
                 $scope.$apply();
             }
         );
-    };  
+    };
+    /*
+    $scope.dismissSuccess = function(){
+    $scope.planet.successAlert = false;
+        //$scope.$apply();
+    }
+    $scope.dismissError = function(){
+        $scope.errorAlert = false;
+    };*/
 });

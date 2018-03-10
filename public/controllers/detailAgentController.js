@@ -6,7 +6,7 @@ detailAgentCtrl.controller('detailAgentController', function($scope, $http, $rou
     
     $http.get('/planet/' + id)
         .then(function(data){
-            console.log("PLEASE WORK!"+data);
+            //console.log(data);
             $scope.planet = data;
         })
     /*
@@ -15,15 +15,25 @@ detailAgentCtrl.controller('detailAgentController', function($scope, $http, $rou
         }); */    
 
 
-    
     $scope.updatePlanet = function(){
         $http.put('/planet/'+ id, $scope.planet)
-            .this(function(data){
+            .then(function(data){
                 console.log(JSON.stringify(data));
                 //Clean the form to allow the user to create new planets
-                $scope.planet = {};
             });
     };
+    
+    //gets Agent Info
+    $scope.agents = [];
+    var id = $routeParams.id;
+    //Retrieve all the agents to show the agent
+    $http.get('/agent')
+        .then(function(agentdata){
+            //console.log("THIS MY DATA!!"+JSON.stringify(agentdata));
+            $scope.agents = agentdata;
+        });
+    
+    
     //Single file upload, you can take a look at the options
     $scope.upload = function(){
         filepickerService.pick(

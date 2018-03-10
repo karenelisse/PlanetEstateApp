@@ -39,8 +39,8 @@ div.transbox {
   border: 1px solid black;
   font-family: serif;
   font-size: 28px;
-  opacity: 0.6;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
   height: 150px;
   width: 250px;
   margin: 0 auto;

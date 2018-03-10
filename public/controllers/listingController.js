@@ -6,16 +6,21 @@ listingCtrl.controller('listingController', function($scope, $http, $routeParams
     //Retrieve all the planets to show the listing
     $http.get('/planet')
         .then(function(data){
-            console.log("THIS MY DATA!!"+JSON.stringify(data));
+            //console.log("THIS MY DATA!!"+JSON.stringify(data));
             $scope.planets = data;
         });
     
-    $http.delete('/planet/' + id)
-        .then(function(data){
-            console.log("PLEASE DELETE!");
-           
-        });
-    
+    $scope.deletePlanet = function(id){
+
+        $http.delete('/planet/'+id)
+            .then(function(data, status){
+                console.log("SUCCESS!!"+status);
+                $http.get('/planet')
+                    .then(function(data){
+                    $scope.planets=data;
+                });
+            });
+    }; 
     /*
         .error(function(data) {
             console.log('Error: ' + data);
