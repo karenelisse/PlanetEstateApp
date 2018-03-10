@@ -7,10 +7,6 @@ detailCtrl.controller('detailController', function($scope, $http, $routeParams){
         .then(function(data){
             console.log("PLEASE WORK!"+data);
             $scope.planet = data;
-        })
-    /*
-        .error(function(data) {
-            console.log('Error: ' + data);
-        }); */    
+        });
+ 
 });
-

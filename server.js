@@ -1,6 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var app = express();
@@ -33,7 +33,9 @@ app.route('/planet')
     .post(planet.post)
     .get(planet.getAll);
 app.route('/planet/:id')
-    .get(planet.getOne);
+    .get(planet.getOne)
+    .delete(planet.remove)
+    .put(planet.update);
 
 app.listen(port);
 console.log('listening on port ' + port);

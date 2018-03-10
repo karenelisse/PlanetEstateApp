@@ -1,0 +1,54 @@
+.body{
+    color:antiquewhite;
+}
+
+.navbar-custom {
+    background-color: #053E87;
+    width: 100%;
+    color: #DDAD86;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #FBEEC1;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #FBEEC1;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #DaaD86;
+}
+
+
+div.background {
+  background-image: url(../images/welcome.jpg);
+  background-repeat: no-repeat;
+  background-position: center;  
+  background-size: cover;
+  border: 3px solid black;
+  height: 400px;
+  padding: 80px;
+
+}
+
+div.transbox {
+  background-color: #ffffff;
+  border: 1px solid black;
+  font-family: serif;
+  font-size: 28px;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+  height: 150px;
+  width: 250px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}

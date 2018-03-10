@@ -2,12 +2,13 @@
 <html ng-app="PlanetEstateApp">
 <head>
     <meta charset="utf-8">
-    <title>Planet Estate App!</title>
+    <title>Planet Estate</title>
     <meta name="description" content="Planet database">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="device witdth, initial-scale=1">
 
     <!-- CSS -->
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./css/style.css"/>
 
     <!-- JS libraries -->
 
@@ -17,26 +18,29 @@
     <script src="./bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
 
     <!-- Angular files -->
-    <script src="./app.js"></script>    
+    <script src="./js/app.js"></script>    
 
     <script src="./controllers/addPlanetController.js"></script>
     <script src="./controllers/listingController.js"></script>
     <script src="./controllers/detailController.js"></script>
+    <script src="./controllers/detailAgentController.js"></script>
 
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-custom">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Planet Estate</a>
+            <div class="navbar-header"><img src="./images/logo.gif" width='50'>
+                <a class="navbar-brand" href="#"> Planet Estate</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
                 <li role="presentation"><a href="/#!/listing">Listings</a></li>
-                <li role="presentation"><a href="/#!/addPlanet">Add Planet</a></li>
-                  <li role="presentation"><a href="/#!/home">home</a></li>
+                <li role="presentation"><a href="/#!/agents">Agents</a></li>
+                <li role="presentation"><a href="/#!/about">About Us</a></li>
+                  <li role="presentation"><a href="/#!/home">Home</a></li>
+                  <li role="presentation"><a href="/#!/listingAgent">Agent Listings</a></li>
                 
               </ul>
             </div>
