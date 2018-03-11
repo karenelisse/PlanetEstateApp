@@ -21,12 +21,18 @@ var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'de
         
         .when('/listingAgent', {
             templateUrl: 'partials/inner/listingAgent.html',
-            controller: 'listingController'
+            controller: 'listingController',
+            resolve: {
+                logincheck: checkLoggedin
+              }
         })
         
         .when('/detailAgent/:id', {
             templateUrl: 'partials/inner/detailAgent.html',
-            controller: 'detailAgentController'
+            controller: 'detailAgentController',
+            resolve: {
+                logincheck: checkLoggedin
+              }
         })
         .when('/agents', {
             templateUrl: 'partials/agents.html',
@@ -43,15 +49,25 @@ var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'de
         
         .when('/allAgents', {
             templateUrl: 'partials/inner/allAgents.html',
-            controller: 'agentController'
+            controller: 'agentController',
+            resolve: {
+                logincheck: checkLoggedin
+              }
+            
         })
         .when('/addAgent', {
             templateUrl: 'partials/inner/addAgent.html',
-            controller: 'addAgentController'
+            controller: 'addAgentController',
+            resolve: {
+                logincheck: checkLoggedin
+              }
         })
         .when('/modAgent/:id', {
             templateUrl: 'partials/inner/modAgent.html',
-            controller: 'modAgentController'
+            controller: 'modAgentController',
+            resolve: {
+                logincheck: checkLoggedin
+              }
         })
         .when('/about', {
             templateUrl: 'partials/about.html'
@@ -62,7 +78,10 @@ var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'de
         })
         .when('/signup', {
           templateUrl: 'partials/inner/signup.html',
-          controller: 'SignUpCtrl'
+          controller: 'SignUpCtrl',
+            resolve: {
+                logincheck: checkLoggedin
+              }
         })
         
         .when('/contact/:id', {
