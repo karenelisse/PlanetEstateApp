@@ -49,6 +49,9 @@ var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'de
             templateUrl: 'partials/inner/modAgent.html',
             controller: 'modAgentController'
         })
+        .when('/about', {
+            templateUrl: 'partials/about.html'
+        })
         
         //Redirect to home in all the other cases.
         .otherwise({redirectTo:'/home'});

@@ -21,6 +21,13 @@
 .navbar-custom .nav-item:hover .nav-link {
     color: #DaaD86;
 }
+navbar-custom .a:link{
+    color: #FBEEC1;
+}
+
+navbar-custom .a:visited{
+    color: #FBEEC1;
+}
 
 
 div.background {
@@ -30,6 +37,18 @@ div.background {
   background-size: cover;
   border: 3px solid black;
   height: 400px;
+  padding: 80px;
+
+}
+
+div.background-about {
+  background-image: url(../images/elonmuskcar.jpg);
+  background-repeat: no-repeat;
+  background-position: center;  
+  background-size: 70%;
+  background-color: black;
+  border: 3px solid black;
+  height: 500px;
   padding: 80px;
 
 }
@@ -51,4 +70,17 @@ div.transbox p {
   margin: 5%;
   font-weight: bold;
   color: #000000;
+}
+
+
+div.about {
+  background-color: ##C7EAFD;
+  border: 1px solid black;
+  font-family: serif;
+  font-size: 28px;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
 }

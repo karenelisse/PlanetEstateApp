@@ -17,6 +17,13 @@ agentCtrl.controller('agentController', function($scope, $http, $routeParams){
                 $http.get('/agent')
                     .then(function(data){
                     $scope.agents=data;
+                    $scope.successTextAlert = "Agent has been successfully Deleted!";
+                    $scope.showSuccessAlert = true;
+
+                    // switch flag
+                    $scope.switchBool = function (value) {
+                    $scope[value] = !$scope[value];
+                    };
                 });
             });
     }; 

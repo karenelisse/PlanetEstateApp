@@ -9,6 +9,13 @@ addAgentCtrl.controller('addAgentController', function($scope, $http, filepicker
                 //Clean the form to allow the user to create new agents
                 $scope.agent = {};
                 //$scope.successAlert = true;
+                $scope.successTextAlert = "Agent has been successfully added!";
+                $scope.showSuccessAlert = true;
+
+                // switch flag
+                $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+                };
                 
             });
         //$scope.addCtrl.successAlert = true;

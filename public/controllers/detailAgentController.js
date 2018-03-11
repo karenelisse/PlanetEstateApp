@@ -20,6 +20,13 @@ detailAgentCtrl.controller('detailAgentController', function($scope, $http, $rou
             .then(function(data){
                 console.log(JSON.stringify(data));
                 //Clean the form to allow the user to create new planets
+                $scope.successTextAlert = "Listing has been successfully updated!";
+                $scope.showSuccessAlert = true;
+
+                // switch flag
+                $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+                };
             });
     };
     

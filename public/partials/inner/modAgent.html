@@ -4,7 +4,8 @@
             <h2 class="panel-title text-center">
                 <span class="glyphicon glyphicon-globe"></span>Update Agent
             </h2>
-        </div>
+            <div class="alert alert-success" ng-show="showSuccessAlert">
+        <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>Done!</strong> {{successTextAlert}}</div>
         <div class="panel-body">
             <!-- The form to add agents information -->
             <form name ="addForm" novalidate>

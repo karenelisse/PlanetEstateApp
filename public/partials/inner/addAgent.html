@@ -5,12 +5,9 @@
                 <span class="glyphicon glyphicon-globe"></span>Add A New Agent Form
             </h2>
         </div>
-        <div class="alert alert-success alert-dismissible"  ng-show="addCtrl.successAlert == true">
-            <button type="button" class="close"  aria-label="Close" ng-click="dismissSuccess()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            Agent Added
-        </div>
+        <div class="alert alert-success" ng-show="showSuccessAlert">
+        <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>Done!</strong> {{successTextAlert}}</div>
+
         <div class="panel-body">
             <!-- The form to add agents information -->
             <form name ="addForm" novalidate>

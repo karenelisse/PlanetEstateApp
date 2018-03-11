@@ -20,8 +20,18 @@ modAgentCtrl.controller('modAgentController', function($scope, $http, $routePara
             .then(function(data){
                 console.log(JSON.stringify(data));
                 //Clean the form to allow the user to create new agents
+                $scope.successTextAlert = "Agent has been successfully updated!";
+                $scope.showSuccessAlert = true;
+
+                // switch flag
+                $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+                };
             });
     };
+    
+    
+    /* ***Unneeded at this time as they are unable to update pictures as of right now
     //Single File Upload
     $scope.upload = function(){
         filepickerService.pick(
@@ -37,6 +47,6 @@ modAgentCtrl.controller('modAgentController', function($scope, $http, $routePara
                 $scope.$apply();
             }
         );
-    };
+    };*/
     
     });

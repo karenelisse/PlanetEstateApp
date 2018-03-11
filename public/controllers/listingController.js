@@ -18,6 +18,13 @@ listingCtrl.controller('listingController', function($scope, $http, $routeParams
                 $http.get('/planet')
                     .then(function(data){
                     $scope.planets=data;
+                    $scope.successTextAlert = "Listing has been successfully deleted!";
+                    $scope.showSuccessAlert = true;
+
+                    // switch flag
+                    $scope.switchBool = function (value) {
+                    $scope[value] = !$scope[value];
+                    };
                 });
             });
     }; 

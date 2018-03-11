@@ -5,6 +5,9 @@
                 <span class="glyphicon glyphicon-globe"></span>Update Planet
             </h2>
         </div>
+        
+        <div class="alert alert-success" ng-show="showSuccessAlert">
+        <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>Done!</strong> {{successTextAlert}}</div>
         <div class="panel-body">
             <!-- The form to add planets information -->
             <form name ="addForm" novalidate>
