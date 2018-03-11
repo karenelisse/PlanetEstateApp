@@ -48,6 +48,7 @@ Other little things:
 * __mongoose__ I used mongoose to connect to my MongoDB. It's simple and streamlined. 
 * __FileStack__ I used FileStack to enable the user to upload photos and save the URL in the database, so the listings and agents could have photos attached
 * __mLabs__ I chose to use mLab for the database hosting. While I could have hosted it locally, I chose to put it in the cloud. This allows it to have a backup, free, daily. While this doesn't matter currently, if this were to become scaleable, having it in the cloud is not always a bad thing. 
+* __heroku__ I hosted it on Heroku for a couple of reasons, the first being that it was free. The second being that it works really well with Node.js. Third, because it is simple and straightforward to use from the command line. 
 
 ## Other Features I'd Like to Add
 The thing about time, is you only have so much of it. While I would have love to have implemented the following, I just didn't have the time to do it. That being said, in my spare time, I'd love to come back and start adding some of these: 
