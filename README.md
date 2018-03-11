@@ -1,7 +1,6 @@
 # Planet Estate App
 This is an application designed by Karen Zaunscherb. I do not own the rights to any of the photos used in the program, and it is not intented for commercial use. If you have a photo on here, and would like to have it referenced, please send me an email at karenelisse@gmail.com, and I'll happily give you credit, or I can take it down, if you wish. This is merely an application to hone my skills in the MEAN stack web applications. Read on for more information, or click the link below for a working version on Heroku:
-
-https://blooming-ocean-16222.herokuapp.com/#!/home
+https://hidden-bastion-24688.herokuapp.com/#!/home
 
 If you want to try the login features, a current login is USERNAME: planet PASSWORD: secure
 
@@ -48,7 +47,7 @@ Other little things:
 * __Passport.js__ Passport is a way to allow the secure log-in, and status of their log in for the website. 
 * __mongoose__ I used mongoose to connect to my MongoDB. It's simple and streamlined. 
 * __FileStack__ I used FileStack to enable the user to upload photos and save the URL in the database, so the listings and agents could have photos attached
-* __mLabs__ I chose to use mLab for the database hosting. While I could have hosted it locally, I chose to 
+* __mLabs__ I chose to use mLab for the database hosting. While I could have hosted it locally, I chose to put it in the cloud. This allows it to have a backup, free, daily. While this doesn't matter currently, if this were to become scaleable, having it in the cloud is not always a bad thing. 
 
 ## Other Features I'd Like to Add
 The thing about time, is you only have so much of it. While I would have love to have implemented the following, I just didn't have the time to do it. That being said, in my spare time, I'd love to come back and start adding some of these: 
