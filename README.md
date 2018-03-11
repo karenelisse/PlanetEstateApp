@@ -34,7 +34,11 @@ While I don't love the idea of having everything on the main landing page (and w
 In the background, I wanted a database, which stored both of the information of the Agents, as well as the Listings. I also wanted to be able to store photos, because most people choose a place, or at least are more interested in, places with pictures. I utilized FileStack's free service for this (but in the real-world, it could be upgraded). This allows the user to choose photos from their computer, dropbox, facebook, instagram, and even a google search. 
 I used MongoDB, and used mLabs in order to set it up. 
 
-All-in-all, I wanted a well-rounded website, with a decent database in the background. 
+All-in-all, I wanted a well-rounded website, with a decent database in the background. \
+
+Other little things: 
+* I chose Ethereum because I felt that Crypto-currency was able to be transferred across galaxies easier. Yes, I could have chosen BitCoin, but with the speed of BitCoin, I don't actually think it will make it to the point in time where we can sell planets! 
+* I decided to stick with the main things for what the listing would have: Size (radius, in km), price, galaxy, solar system, and a bio. Ultimately, there were lots of things I could add: how much water, inhabited or not, how many moons, distance from a sun, average temperature ... the list goes on and on. That being said, those are all things I could add at a later time. 
 
 ## What I used
 * __MongoDB__ I used MongoDB because it is schema-less and scalable. While the site is fairly juvenile, currently, lets face it: A Planet Real-Estate company will probably take off, one day! 
