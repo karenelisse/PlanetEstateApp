@@ -1,13 +1,28 @@
 var express = require('express');
+var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 5000;
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var app = express();
 var path = require('path');
 
 var planet = require('./app/routes/planet')();
 var agent = require('./app/routes/agent')();
+
+
+//Passport
+var passport = require('passport');
+require('./app/config/passport')(passport); // pass passport for configuration
+
+//Cookie and session
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+app.use(session({
+  secret: 'this is the secret'
+}));
+app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Just some options for the db connection
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
@@ -45,6 +60,8 @@ app.route('/agent/:id')
     .get(agent.getOne)
     .delete(agent.remove)
     .put(agent.update);
+
+require('./app/routes/auth.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 app.listen(port);
 console.log('listening on port ' + port);

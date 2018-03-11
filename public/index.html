@@ -27,6 +27,17 @@
     <script src="./controllers/agentController.js"></script>
     <script src="./controllers/addAgentController.js"></script>
     <script src="./controllers/modAgentController.js"></script>
+    <script src="./controllers/loginController.js"></script>
+    <script src="./controllers/signUpController.js"></script>
+    <script src="./controllers/navController.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+
 
 </head>
 <body>
@@ -39,12 +50,14 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
+                <li role="presentation"><a href="/#!/home">Home</a></li>
                 <li role="presentation"><a href="/#!/listing">Listings</a></li>
                 <li role="presentation"><a href="/#!/agents">Agents</a></li>
                 <li role="presentation"><a href="/#!/about">About Us</a></li>
-                  <li role="presentation"><a href="/#!/home">Home</a></li>
-                  <li role="presentation"><a href="/#!/agentHome">Agent Home</a></li>
-                
+
+                  <li ng-if ="currentUser.username == null" role="presentation"><a href="/#!/login">Team Log In</a></li>
+                  <li ng-if ="currentUser.username != null" role="presentation"><a href="/#!/agentHome">Agent Home</a></li>
+
               </ul>
             </div>
         </div>

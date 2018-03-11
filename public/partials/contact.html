@@ -1,0 +1,37 @@
+<!-- View the details of a planet -->
+
+<div ng-if="agent.data.name">
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center"></span> Contact The Agent </h2>
+        </div>
+        <div class="panel-body text-center">
+            <img ng-src="{{agent.data.picture.url | fpConvert: {filter:'sharpen', w:500} }}" />
+            <h2>{{agent.data.name}}</h2>
+            <hr />
+            <p class="text-left"><label>Phone Number: </label> {{agent.data.number}}</p>
+            <p class="text-left"><label>Email: </label> {{agent.data.email}}</p>
+
+            <p class="text-left"><label>A bit about our agent: </label> {{agent.data.bio}}</p>
+            <!-- Only if there are other pictures -->
+
+        </div>
+    </div>
+</div>
+</div>
+
+<div ng-if ="agent.data.name == null">
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center"></span> Contact The Team </h2>
+        </div>
+        <div class="panel-body text-center">
+            <p>Give us a call and one of our friendly staff will help you out!</p>
+            <p class="text-left"><label>Phone Number: </label> 867-5309</p>
+            <p class="text-left"><label>Email: </label> info@planetestate.com.au</p>
+        </div>
+    </div>
+</div>
+</div>

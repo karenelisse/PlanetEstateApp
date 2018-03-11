@@ -1,2 +1,12 @@
-<a ng-href="/#!/allAgents" class="btn btn-small btn-primary">See All Agents</a>
-<a ng-href="/#!/listingAgent" class="btn btn-small btn-primary">See All Listings</a>
+    <div class="about">
+       Welcome, <b>{{currentUser.username}}</b>. This page is for Team Members Only. This page allows the user to see all of the agent pages, such as See All Agents and See All Listings 
+    <p></p>
+        <a ng-href="/#!/allAgents" class="btn btn-small btn-primary">See All Agents</a>
+        <br><a ng-href="/#!/listingAgent" class="btn btn-small btn-primary">See All Listings</a>
+        <br><a ng-href="/#!/signup" class="btn btn-small btn-primary">Create New Account</a>
+        <br><button class="btn btn-small btn-primary" ng-click="logout()">Log Out</button>
+        
+    </div>
+
+
+

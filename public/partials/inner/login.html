@@ -1,0 +1,23 @@
+<h1>Login</h1>
+<div class="col-md-8 col-md-offset-2"><div class="panel panel-default">            This page is for AGENTS and TEAM MEMBERS to log in. 
+            <br> If you are not logging in, please navigate click the button below to navigate back to the home page.
+            <p></p><a ng-href="/#!/home" class="btn btn-small btn-info">Go Home</a><p></p>
+    </div></div>
+<p></p>
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center">
+                <span class="glyphicon glyphicon-user"></span> Login
+            </h2>
+        </div>
+        <div class="panel-body">
+
+            <p><p></p>
+              <b>Username:   </b><input ng-model="user.username"/></br>
+              <b>Password:  <input ng-model="user.password" type="password"/></br>
+              <button ng-click="login(user)" class="btn btn-small btn-info">Login</button>
+            </p>
+        </div>
+    </div>
+</div>

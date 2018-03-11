@@ -1,5 +1,5 @@
 //Main file
-var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'detailCtrl', 'detailAgentCtrl', 'agentCtrl', 'addAgentCtrl', 'modAgentCtrl', 'ngRoute', 'angular-filepicker'])
+var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'detailCtrl', 'detailAgentCtrl', 'agentCtrl', 'addAgentCtrl', 'modAgentCtrl', 'LoginCtrl','SignUpCtrl','NavCtrl', 'ngRoute',  'angular-filepicker'])
     .config(function($routeProvider, filepickerProvider){
         //The route provider handles the client request to switch route
         $routeProvider.when('/addPlanet', {          
@@ -34,7 +34,11 @@ var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'de
         })
         
         .when('/agentHome', {
-            templateUrl: 'partials/inner/agentHome.html'
+            templateUrl: 'partials/inner/agentHome.html',
+            controller: 'navController',
+            resolve: {
+                logincheck: checkLoggedin
+              }
         })
         
         .when('/allAgents', {
@@ -52,9 +56,41 @@ var app = angular.module('PlanetEstateApp', ['addPlanetCtrl', 'listingCtrl', 'de
         .when('/about', {
             templateUrl: 'partials/about.html'
         })
+        .when('/login', {
+          templateUrl: 'partials/inner/login.html',
+          controller: 'LoginCtrl'
+        })
+        .when('/signup', {
+          templateUrl: 'partials/inner/signup.html',
+          controller: 'SignUpCtrl'
+        })
+        
+        .when('/contact/:id', {
+            templateUrl: 'partials/contact.html',
+            controller: 'modAgentController'
+        })
         
         //Redirect to home in all the other cases.
         .otherwise({redirectTo:'/home'});
         //Add the API key to use filestack service
-        filepickerProvider.setKey('AxaJWrEr9SKu6htPFDFxUz');
+        filepickerProvider.setKey('ADGvbGDtKScCRuNHOs7Qgz');
 });
+
+
+var checkLoggedin = function($http, $location, $rootScope) {
+    return $http
+        .get('/loggedin')
+        .then(response => response.data)
+        .then(function(user) {
+            $rootScope.errorMessage = null;
+            //User is Authenticated
+            if (user != '0') {
+                $rootScope.currentUser = user;
+            } else {
+                //User is not Authenticated
+                $rootScope.errorMessage = 'You need to log in.';
+                $location.url('/home');
+                throw new Error('You need to log in.');
+            }
+        });
+};

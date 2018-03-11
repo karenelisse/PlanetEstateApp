@@ -1,0 +1,19 @@
+
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center">
+                <span class="glyphicon glyphicon-user"></span>Create New Sign In
+            </h2>
+        </div>
+        <div class="panel-body">
+            <!-- The form to add agents information -->
+            <p>
+              <b>Username:   </b><input ng-model="user.username"/></br>
+              <b>Password:   </b><input ng-model="user.password" type="password" /></br>
+              <b>Re-Enter Password: </b><input ng-model="user.password2" type="password" /></br>
+              <button ng-click="signup(user)">Sign Up</button>
+            </p>
+        </div>
+    </div>
+</div>
